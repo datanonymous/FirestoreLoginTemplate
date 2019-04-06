@@ -66,6 +66,17 @@
             android:textSize="18sp"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="232dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:backgroundTint="@color/common_google_signin_btn_text_light_default"
+            app:fabSize="mini"
+            app:rippleColor="@color/colorAccent"
+            app:srcCompat="@drawable/baseline_verified_user_white_18dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -134,6 +145,18 @@
             android:textColorHighlight="@color/common_google_signin_btn_text_dark_default"
             android:textColorHint="@color/common_google_signin_btn_text_dark_pressed"
             tools:layout_editor_absoluteY="264dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="8dp"
+            android:clickable="true"
+            app:backgroundTint="@color/common_google_signin_btn_text_dark_default"
+            app:fabSize="mini"
+            app:rippleColor="@color/colorAccent"
+            app:srcCompat="@drawable/baseline_person_add_black_18dp" />
 
     </LinearLayout>
 
