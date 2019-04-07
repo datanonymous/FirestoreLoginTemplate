@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "45209203205",
+    "firebase_url": "https://firestorelogintemplate.firebaseio.com",
+    "project_id": "firestorelogintemplate",
+    "storage_bucket": "firestorelogintemplate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45209203205:android:5a7dd255c0ccd3f5",
+        "android_client_info": {
+          "package_name": "ko.alex.firestorelogintemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45209203205-70shu3js6qvcg65rea5j5friqo1qotgh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ko.alex.firestorelogintemplate",
+            "certificate_hash": "f0715386be2f5e3cee98f137fddf724679124c94"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0clYHkjCfuT0gn48uqTJeuoi3EM65K9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45209203205-4sjmoiqssu3ir3ju5biaof83gi7vinak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
