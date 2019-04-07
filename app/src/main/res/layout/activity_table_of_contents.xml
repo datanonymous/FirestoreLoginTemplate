@@ -7,47 +7,70 @@
     android:layout_height="match_parent"
     tools:context=".TableOfContents">
 
-    <Button
-        android:id="@+id/raleighButton"
-        android:layout_width="0dp"
-        android:layout_height="213dp"
-        android:background="@drawable/trcraleigh"
-        android:scaleType="fitCenter"
-        android:text="RALEIGH"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/morrisvilleButton"
-        android:layout_width="0dp"
-        android:layout_height="213dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/trcmorrisville"
-        android:scaleType="fitCenter"
-        android:text="MORRISVILLE"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raleighButton" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/durhamButton"
-        android:layout_width="0dp"
-        android:layout_height="213dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/trcdurham"
-        android:scaleType="fitCenter"
-        android:text="DURHAM"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/morrisvilleButton" />
+            <Button
+                android:id="@+id/raleighButton"
+                android:layout_width="match_parent"
+                android:layout_height="213dp"
+                android:background="@drawable/trcraleigh"
+                android:scaleType="fitCenter"
+                android:text="RALEIGH"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/morrisvilleButton"
+                android:layout_width="match_parent"
+                android:layout_height="213dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/trcmorrisville"
+                android:scaleType="fitCenter"
+                android:text="MORRISVILLE"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/raleighButton" />
+
+            <Button
+                android:id="@+id/durhamButton"
+                android:layout_width="match_parent"
+                android:layout_height="213dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/trcdurham"
+                android:scaleType="fitCenter"
+                android:text="DURHAM"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/morrisvilleButton" />
+
+            <Button
+                android:id="@+id/loginScreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Return to Login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/durhamButton" />
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
