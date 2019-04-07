@@ -62,11 +62,15 @@
             <Button
                 android:id="@+id/loginScreen"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:background="@drawable/ropepic2"
+                android:scaleType="fitCenter"
                 android:text="Return to Login"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textColorLink="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/durhamButton" />
