@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Registration clicked", Toast.LENGTH_SHORT).show();
             }
         });
-        
+
     } //End onCreate
 
 

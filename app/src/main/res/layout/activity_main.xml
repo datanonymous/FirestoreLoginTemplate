@@ -113,7 +113,11 @@
             android:hint="PASSWORD"
             android:inputType="textPassword"
             android:textAlignment="textEnd"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textColorHighlight="@color/common_google_signin_btn_text_dark_default"
             android:textColorHint="@color/common_google_signin_btn_text_dark_pressed"
+            android:textColorLink="@color/common_google_signin_btn_text_dark_default"
+            android:textCursorDrawable="@color/common_google_signin_btn_text_dark_default"
             tools:layout_editor_absoluteY="264dp" />
 
         <EditText
@@ -127,8 +131,11 @@
             android:hint="CONFIRM PASSWORD"
             android:inputType="textPassword"
             android:textAlignment="textEnd"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textColorHighlight="@color/common_google_signin_btn_text_dark_default"
             android:textColorHint="@color/common_google_signin_btn_text_dark_pressed"
+            android:textColorLink="@color/common_google_signin_btn_text_dark_default"
+            android:textCursorDrawable="@color/common_google_signin_btn_text_dark_default"
             tools:layout_editor_absoluteY="264dp" />
 
         <android.support.design.widget.FloatingActionButton
@@ -150,6 +157,7 @@
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
