@@ -57,10 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 registerUser();
-                //userLogin();
-                //finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
                 Toast.makeText(getApplicationContext(), "Registration clicked", Toast.LENGTH_SHORT).show();
-                //TODO: startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
             }
         });
 
@@ -71,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     private void userLogin() {
         String email = loginEmail.getText().toString().trim(); //.trim() removes whitespace from either side
         String password = loginPW.getText().toString().trim();
-
         if (email.isEmpty()) {
             loginEmail.setError("Email is required");
             loginEmail.requestFocus();
@@ -92,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
             loginPW.requestFocus();
             return;
         }
-
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -106,22 +101,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    } //End userLogin()
 
     @Override
     protected void onStart() {
         super.onStart();
-
         if (mAuth.getCurrentUser() != null) {
             finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
             startActivity(new Intent(this, TableOfContents.class));
         }
-    }
+    } //End onStart()
 
     private void registerUser() {
         String RegisterEmail = registerEmail.getText().toString().trim();
         String RegisterPW = registerPW.getText().toString().trim();
-
         if (RegisterEmail.isEmpty()) {
             registerEmail.setError("Email is required");
             registerEmail.requestFocus();
@@ -142,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
             registerPW.requestFocus();
             return;
         }
-
         mAuth.createUserWithEmailAndPassword(RegisterEmail, RegisterPW).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -159,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
+    } //End registerUser()
+
+
 
 } //End MainActivity
 
