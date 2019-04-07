@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Registration clicked", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
+        
     } //End onCreate
+
+
 
     private void userLogin() {
         String email = loginEmail.getText().toString().trim(); //.trim() removes whitespace from either side
@@ -103,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         });
     } //End userLogin()
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -111,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, TableOfContents.class));
         }
     } //End onStart()
+
+
 
     private void registerUser() {
         String RegisterEmail = registerEmail.getText().toString().trim();
