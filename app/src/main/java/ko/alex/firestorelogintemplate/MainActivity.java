@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
     EditText loginEmail, loginPW, registerEmail, registerPW, registerPW2;
     FloatingActionButton loginFAB, registerFAB;
     FirebaseAuth mAuth;
-
-    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +56,15 @@ public class MainActivity extends AppCompatActivity {
         registerFAB.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                registerUser();
                 //userLogin();
-                finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
+                //finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
                 Toast.makeText(getApplicationContext(), "Registration clicked", Toast.LENGTH_SHORT).show();
                 //TODO: startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
             }
         });
+
+
 
     } //End onCreate
 
@@ -75,31 +77,25 @@ public class MainActivity extends AppCompatActivity {
             loginEmail.requestFocus();
             return;
         }
-
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             loginEmail.setError("Please enter a valid email");
             loginEmail.requestFocus();
             return;
         }
-
         if (password.isEmpty()) {
             loginPW.setError("Password is required");
             loginPW.requestFocus();
             return;
         }
-
         if (password.length() < 6) {
             loginPW.setError("Minimum length of password should be 6");
             loginPW.requestFocus();
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
-
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
                     finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
                     Intent intent = new Intent(MainActivity.this, TableOfContents.class);
@@ -122,4 +118,54 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void registerUser() {
+        String RegisterEmail = registerEmail.getText().toString().trim();
+        String RegisterPW = registerPW.getText().toString().trim();
+
+        if (RegisterEmail.isEmpty()) {
+            registerEmail.setError("Email is required");
+            registerEmail.requestFocus();
+            return;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(RegisterEmail).matches()) {
+            registerEmail.setError("Please enter a valid email");
+            registerEmail.requestFocus();
+            return;
+        }
+        if (RegisterPW.isEmpty()) {
+            registerPW.setError("Password is required");
+            registerPW.requestFocus();
+            return;
+        }
+        if (RegisterPW.length() < 6) {
+            registerPW.setError("Minimum length of password should be 6");
+            registerPW.requestFocus();
+            return;
+        }
+
+        mAuth.createUserWithEmailAndPassword(RegisterEmail, RegisterPW).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
+                    startActivity(new Intent(MainActivity.this, TableOfContents.class));
+                } else {
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(getApplicationContext(), "You are already registered", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+    }
+
 } //End MainActivity
+
+
+
+
+
+
+
