@@ -36,8 +36,8 @@ public class TableOfContents extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_of_contents);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        mTextMessage = findViewById(R.id.message);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
