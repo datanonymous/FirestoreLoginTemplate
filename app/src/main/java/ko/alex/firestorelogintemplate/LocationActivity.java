@@ -3,8 +3,12 @@ package ko.alex.firestorelogintemplate;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,7 +24,6 @@ import org.w3c.dom.Text;
 public class LocationActivity extends AppCompatActivity {
 
     TextView textViewVerification, gymChoice;
-    Button button;
     FirebaseAuth mAuth;
 
     @Override
@@ -37,6 +40,7 @@ public class LocationActivity extends AppCompatActivity {
 
         loadUserInformation();
 
+        //Button button;
         //I like this way of setting an on click listener
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +67,45 @@ public class LocationActivity extends AppCompatActivity {
             }
         });
 
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     } //End onCreate
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_climbing:
+                    Toast.makeText(getApplicationContext(), "Climbing clinics", Toast.LENGTH_SHORT).show();
+                    loadFragment(new Bot1Frag());
+                    return true;
+                case R.id.navigation_yoga:
+                    Toast.makeText(getApplicationContext(), "Yoga sessions", Toast.LENGTH_SHORT).show();
+                    loadFragment(new Bot2Frag());
+                    return true;
+                case R.id.navigation_fitness:
+                    Toast.makeText(getApplicationContext(), "Fitness", Toast.LENGTH_SHORT).show();
+                    loadFragment(new Bot3Frag());
+                    return true;
+                case R.id.navigation_mountain:
+                    Toast.makeText(getApplicationContext(), "Climbing outside", Toast.LENGTH_SHORT).show();
+                    loadFragment(new Bot4Frag());
+                    return true;
+            }
+            return false;
+        }
+    };
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        //ViewPager should not be used when using bottom navigation
+        transaction.replace(R.id.topConstraint, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
     private void loadUserInformation() {
         final FirebaseUser user = mAuth.getCurrentUser();
@@ -97,6 +139,6 @@ public class LocationActivity extends AppCompatActivity {
         }
     } //End loadUserInformation()
 
-    
+
 
 } //End LocationActivity

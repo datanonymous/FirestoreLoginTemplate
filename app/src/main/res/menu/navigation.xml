@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:id="@+id/navigation_climbing"
+        android:icon="@drawable/climbing"
+        android:title="Climbing clinics" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_yoga"
+        android:icon="@drawable/yoga"
+        android:title="Yoga sessions" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_fitness"
+        android:icon="@drawable/fitness"
+        android:title="Fitness" />
+
+    <item
+        android:id="@+id/navigation_mountain"
+        android:icon="@drawable/overhang"
+        android:title="Climbing outside" />
 
 </menu>
