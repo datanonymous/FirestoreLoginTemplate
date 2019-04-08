@@ -35,7 +35,37 @@ public class TableOfContents extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
                 Toast.makeText(getApplicationContext(), "Login screen clicked", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(TableOfContents.this, MainActivity.class)); //Can also use getApplicationContext() instead of TableOfContents.this
+            }
+        });
+        raleighButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getApplicationContext(), "Raleigh button clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("message", "RALEIGH BUTTON CLICKED");
+                startActivity(intent);
+            }
+        });
+        morrisvilleButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getApplicationContext(), "Morrisville button clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("message", "MORRISVILLE BUTTON CLICKED");
+                startActivity(intent);
+            }
+        });
+        durhamButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getApplicationContext(), "Durham clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("message", "DURHAM BUTTON CLICKED");
+                startActivity(intent);
             }
         });
 
