@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
     private void registerUser() {
         String RegisterEmail = registerEmail.getText().toString().trim();
         String RegisterPW = registerPW.getText().toString().trim();
+        String RegisterPW2 = registerPW2.getText().toString().trim();
         if (RegisterEmail.isEmpty()) {
             registerEmail.setError("Email is required");
             registerEmail.requestFocus();
@@ -138,6 +139,10 @@ public class MainActivity extends AppCompatActivity {
             registerPW.setError("Minimum length of password should be 6");
             registerPW.requestFocus();
             return;
+        }
+        if(!RegisterPW.equals(RegisterPW2)){
+            registerPW2.setError("Both passwords must match");
+            registerPW2.requestFocus();
         }
         mAuth.createUserWithEmailAndPassword(RegisterEmail, RegisterPW).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

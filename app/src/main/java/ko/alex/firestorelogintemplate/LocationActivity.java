@@ -95,6 +95,8 @@ public class LocationActivity extends AppCompatActivity {
                 });
             }
         }
-    }
+    } //End loadUserInformation()
+
+    
 
 } //End LocationActivity
