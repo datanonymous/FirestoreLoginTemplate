@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/backFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrow" />
+
+    <TextView
+        android:id="@+id/textViewTitle1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="textViewTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backFAB"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTitle2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="textViewTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/backFAB"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle1" />
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/topConstraint"
         android:layout_width="0dp"
@@ -13,7 +49,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomConstraint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle2">
 
         <TextView
             android:id="@+id/textViewVerification"
@@ -86,6 +122,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewB" />
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout

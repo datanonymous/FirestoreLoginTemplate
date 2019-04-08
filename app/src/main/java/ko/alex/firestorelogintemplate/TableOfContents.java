@@ -44,7 +44,7 @@ public class TableOfContents extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Raleigh button clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("message", "RALEIGH BUTTON CLICKED");
+                intent.putExtra("message", "RALEIGH LOCATION");
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class TableOfContents extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Morrisville button clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("message", "MORRISVILLE BUTTON CLICKED");
+                intent.putExtra("message", "MORRISVILLE LOCATION");
                 startActivity(intent);
             }
         });
@@ -64,7 +64,7 @@ public class TableOfContents extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Durham clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("message", "DURHAM BUTTON CLICKED");
+                intent.putExtra("message", "DURHAM LOCATION");
                 startActivity(intent);
             }
         });
