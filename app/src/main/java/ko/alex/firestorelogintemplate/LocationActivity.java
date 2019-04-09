@@ -33,24 +33,20 @@ public class LocationActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //Trying to get what the user picked before
-        gymChoice = findViewById(R.id.gymChoice);
         Intent intent = getIntent();
         String message = intent.getStringExtra("message");
-        gymChoice.setText(message);
-
-
-
-        loadUserInformation();
 
 
 
         //SETTING TITLE INFORMATION
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final String email = user.getEmail();
+//                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                        final String name = user.getDisplayName();
+//                        final String email = user.getEmail();
+//                        final String uid = user.getUid();
         textViewTitle1 = findViewById(R.id.textViewTitle1);
         textViewTitle2 = findViewById(R.id.textViewTitle2);
         textViewTitle1.setText("Location: " + message);
-        //textViewTitle2.setText("User: " + email );
         if (user != null) {
             if (user.isEmailVerified()) {
                 textViewTitle2.setText("User: " + user.getEmail() + " -> Email Verified");
@@ -77,32 +73,6 @@ public class LocationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 startActivity(new Intent(LocationActivity.this, TableOfContents.class)); //Can also use getApplicationContext() instead of TableOfContents.this
-            }
-        });
-
-
-
-        //Button button;
-        //I like this way of setting an on click listener
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //saveUserInformation();
-                //https://firebase.google.com/docs/auth/android/manage-users
-                //TODO: Working on user profiles; can i get a toast to show a user's data?
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                final String name = user.getDisplayName();
-                final String email = user.getEmail();
-                final String uid = user.getUid();
-
-                TextView textViewA = findViewById(R.id.textViewA);
-                TextView textViewB = findViewById(R.id.textViewB);
-                TextView textViewC = findViewById(R.id.textViewC);
-                textViewA.setText("Name: " + name);
-                textViewB.setText("Email: " + email);
-                textViewC.setText("UID: " + uid);
-                //https://firebase.google.com/docs/auth/android/manage-users
-                Toast.makeText(getApplicationContext(), "User info: \n" + "Name: " + name + "\nEmail: " + email + "\nUID: " + uid, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -151,52 +121,6 @@ public class LocationActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
-    private void loadUserInformation() {
-        final FirebaseUser user = mAuth.getCurrentUser(); //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        textViewTitle2 = findViewById(R.id.textViewTitle2);
-        textViewVerification = findViewById(R.id.textViewVerification);
-        if (user != null) {
-//            if (user.getPhotoUrl() != null) {
-//                //https://bumptech.github.io/glide/
-//                Glide.with(this)
-//                        .load(user.getPhotoUrl().toString())
-//                        .into(imageView);
-//            }
-//            if (user.getDisplayName() != null) {
-//                editText.setText(user.getDisplayName());
-//            }
-            if (user.isEmailVerified()) {
-                textViewTitle2.setText("User: " + user.getEmail() + " -> Email Verified");
-                textViewVerification.setText("Email Verified");
-            } else {
-                textViewTitle2.setText("Email not verified (Click to Verify)");
-                textViewTitle2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(LocationActivity.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                });
-                textViewVerification.setText("Email Not Verified (Click to Verify)");
-                textViewVerification.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(LocationActivity.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                });
-            }
-        }
-    } //End loadUserInformation()
 
 
 
