@@ -12,9 +12,9 @@
         android:title="Yoga sessions" />
 
     <item
-        android:id="@+id/navigation_fitness"
-        android:icon="@drawable/fitness"
-        android:title="Fitness" />
+        android:id="@+id/navigation_event"
+        android:icon="@drawable/event"
+        android:title="Events" />
 
     <item
         android:id="@+id/navigation_mountain"
