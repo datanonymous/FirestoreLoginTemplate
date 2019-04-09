@@ -147,7 +147,7 @@ public class LocationActivity extends AppCompatActivity {
         // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //ViewPager should not be used when using bottom navigation
-        transaction.replace(R.id.topConstraint, fragment);
+        transaction.replace(R.id.topConstraint, fragment); //TOP CONSTRAINT IS THE LAYOUT THAT IS CHANGED BETWEEN BOTTOM TABS
         transaction.addToBackStack(null);
         transaction.commit();
     }
