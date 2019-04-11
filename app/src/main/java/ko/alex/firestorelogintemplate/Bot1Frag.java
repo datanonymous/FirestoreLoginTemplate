@@ -26,6 +26,9 @@ public class Bot1Frag extends Fragment {
 
         //Custom alert dialog
         //https://www.youtube.com/watch?v=plnLs6aST1M
+
+        //Working with Firebase and Recyclerview
+        //https://www.youtube.com/watch?v=kyGVgrLG3KU&list=LLj1xIyoM3IcZs9XdwFDaJWA&index=3&t=0s
     }
 
     @Override
