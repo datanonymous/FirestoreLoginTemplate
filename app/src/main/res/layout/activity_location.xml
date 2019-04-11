@@ -66,7 +66,7 @@
             android:background="@color/common_google_signin_btn_text_light_default"
             app:itemIconSize="30dp"
             app:itemIconTint="@color/common_google_signin_btn_text_dark_default"
-            app:itemTextColor="@color/colorAccent"
+            app:itemTextColor="@android:color/holo_green_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

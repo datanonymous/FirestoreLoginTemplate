@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText loginEmail, loginPW, registerEmail, registerPW, registerPW2;
     FloatingActionButton loginFAB, registerFAB;
     FirebaseAuth mAuth;
+    Button lostPWbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 registerUser();
                 Toast.makeText(getApplicationContext(), "Registration clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        lostPWbutton = findViewById(R.id.lostPWbutton);
+        lostPWbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "You forgot your password?!?!?!?", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, LostPasswordActivity.class));
             }
         });
 

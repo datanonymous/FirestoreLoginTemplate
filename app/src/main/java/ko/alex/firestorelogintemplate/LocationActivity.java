@@ -40,8 +40,6 @@ public class LocationActivity extends AppCompatActivity {
 
         //SETTING TITLE INFORMATION
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                        final String name = user.getDisplayName();
 //                        final String email = user.getEmail();
 //                        final String uid = user.getUid();
         textViewTitle1 = findViewById(R.id.textViewTitle1);
@@ -101,11 +99,11 @@ public class LocationActivity extends AppCompatActivity {
                     loadFragment(new Bot2Frag());
                     return true;
                 case R.id.navigation_event:
-                    Toast.makeText(getApplicationContext(), "Fitness", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Special events", Toast.LENGTH_SHORT).show();
                     loadFragment(new Bot3Frag());
                     return true;
                 case R.id.navigation_mountain:
-                    Toast.makeText(getApplicationContext(), "Climbing outside", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Outdoor climbing", Toast.LENGTH_SHORT).show();
                     loadFragment(new Bot4Frag());
                     return true;
             }
