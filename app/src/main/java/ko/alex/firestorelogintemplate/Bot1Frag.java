@@ -90,7 +90,7 @@ public class Bot1Frag extends Fragment {
             } //END ONEVENT
 
         }); //END FIREBASE FIRESTORE COLLECTION
-        
+
         return view;
     } //END ONCREATEVIEW
 
