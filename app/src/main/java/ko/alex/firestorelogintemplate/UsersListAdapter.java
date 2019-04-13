@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class UsersListAdapter extends
-        RecyclerView.Adapter<UsersListAdapter.ViewHolder> {
+public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.ViewHolder> {
+
+    //Working with RecyclerView
+    //https://www.androidhive.info/2016/01/android-working-with-recycler-view/
 
     private List<Users> usersList;
 
