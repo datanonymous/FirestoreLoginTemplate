@@ -14,12 +14,10 @@ public class UsersListAdapter extends
         RecyclerView.Adapter<UsersListAdapter.ViewHolder> {
 
     private List<Users> usersList;
-    private Context context;
 
     //CONSTRUCTOR
-    public UsersListAdapter(List<Users> usersList, Context context){
+    public UsersListAdapter(List<Users> usersList){
         this.usersList = usersList;
-        this.context = context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -29,7 +27,6 @@ public class UsersListAdapter extends
         //CREATE CONSTRUCTOR MATCHING SUPER
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            //view = itemView;
             nameText = itemView.findViewById(R.id.nameText);
             birthdayText = itemView.findViewById(R.id.birthdayText);
         }

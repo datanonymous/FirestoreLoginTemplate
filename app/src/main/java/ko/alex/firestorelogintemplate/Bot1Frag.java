@@ -54,17 +54,17 @@ public class Bot1Frag extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.bot1frag, container, false);
 
+        //mainList refers to the recyclerview
         mainList = view.findViewById(R.id.mainList);
         mainList.setHasFixedSize(true);
         mainList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         usersList = new ArrayList<>();
 
-        usersListAdapter = new UsersListAdapter(usersList, getActivity());
+        usersListAdapter = new UsersListAdapter(usersList);
         mainList.setAdapter(usersListAdapter);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
-
         firebaseFirestore.collection("Users").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
@@ -90,7 +90,7 @@ public class Bot1Frag extends Fragment {
             } //END ONEVENT
 
         }); //END FIREBASE FIRESTORE COLLECTION
-
+        
         return view;
     } //END ONCREATEVIEW
 

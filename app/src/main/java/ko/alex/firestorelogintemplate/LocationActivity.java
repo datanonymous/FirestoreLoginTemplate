@@ -79,7 +79,8 @@ public class LocationActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
+        //THIS IS NEEDED OTHERWISE THE FIRST SCREEN A USER SEES AFTER CLICKING ON A LOCATION IS BLANK (FRAGMENT IS NOT LOADED YET)
+        loadFragment(new Bot1Frag());
 
     } //End onCreate
 
