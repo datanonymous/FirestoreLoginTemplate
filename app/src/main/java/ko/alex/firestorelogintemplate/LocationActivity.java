@@ -32,9 +32,23 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location);
         mAuth = FirebaseAuth.getInstance();
 
+
+
         //Trying to get what the user picked before
-        Intent intent = getIntent();
+        Intent intent = getIntent(); //FROM TableOfContents java class
         String message = intent.getStringExtra("message");
+
+
+
+        //TODO: Pass message variable (what gym location was selected) to bot2 and bot3 frags
+        Bundle bundle = new Bundle();
+        bundle.putString("fromLocationActivity", message);
+        Bot1Frag bot1Frag = new Bot1Frag();
+        Bot2Frag bot2Frag = new Bot2Frag();
+        Bot3Frag bot3Frag = new Bot3Frag();
+        bot1Frag.setArguments(bundle);
+        bot2Frag.setArguments(bundle);
+        bot3Frag.setArguments(bundle);
 
 
 

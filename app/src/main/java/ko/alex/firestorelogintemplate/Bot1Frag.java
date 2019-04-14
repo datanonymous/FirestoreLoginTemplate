@@ -86,9 +86,7 @@ public class Bot1Frag extends Fragment {
                         usersListAdapter.notifyDataSetChanged();
                     }
                 }
-
             } //END ONEVENT
-
         }); //END FIREBASE FIRESTORE COLLECTION
 
         return view;
