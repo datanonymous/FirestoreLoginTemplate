@@ -26,6 +26,8 @@ public class LocationActivity extends AppCompatActivity {
     TextView textViewVerification, gymChoice, textViewTitle1, textViewTitle2;
     FirebaseAuth mAuth;
 
+    String message;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,19 +38,7 @@ public class LocationActivity extends AppCompatActivity {
 
         //Trying to get what the user picked before
         Intent intent = getIntent(); //FROM TableOfContents java class
-        String message = intent.getStringExtra("message");
-
-
-
-        //TODO: Pass message variable (what gym location was selected) to bot2 and bot3 frags
-        Bundle bundle = new Bundle();
-        bundle.putString("fromLocationActivity", message);
-        Bot1Frag bot1Frag = new Bot1Frag();
-        Bot2Frag bot2Frag = new Bot2Frag();
-        Bot3Frag bot3Frag = new Bot3Frag();
-        bot1Frag.setArguments(bundle);
-        bot2Frag.setArguments(bundle);
-        bot3Frag.setArguments(bundle);
+        message = intent.getStringExtra("message");
 
 
 
@@ -97,6 +87,14 @@ public class LocationActivity extends AppCompatActivity {
         loadFragment(new Bot1Frag());
 
     } //End onCreate
+
+
+
+    //GET LOCATION SELECTED, THERE MIGHT BE A BETTER WAY, LIKE USING A BUNDLE
+    //https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
+    public String getLocationSelected(){
+        return message;
+    }
 
 
 

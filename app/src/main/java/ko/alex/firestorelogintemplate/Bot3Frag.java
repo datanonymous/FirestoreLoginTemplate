@@ -60,38 +60,39 @@ public class Bot3Frag extends Fragment {
         //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
         //TODO: https://www.youtube.com/watch?v=vdCejJobMp4
         //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
-        String myValue = this.getArguments().getString("fromLocationActivity");
-        Toast.makeText(getContext(), "Location selected: " + myValue, Toast.LENGTH_SHORT).show();
+//        String myValue = this.getArguments().getString("fromLocationActivity");
+//        Toast.makeText(getContext(), "Location selected: " + myValue, Toast.LENGTH_SHORT).show();
+        LocationActivity locationActivity = (LocationActivity) getActivity();
+        String locationSelected = locationActivity.getLocationSelected();
+        Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
-        if (getArguments() != null) {
-            String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
-            Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
+//        String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
+//        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
 
-            firebaseFirestore.collection("GymLocations").document(locationSelected).collection("SpecialEvents").addSnapshotListener(new EventListener<QuerySnapshot>() {
-                @Override
-                public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                    if (e != null) {
-                        Log.d(TAG, "Error: " + e.getMessage());
-                    }
+        firebaseFirestore.collection("GymLocations").document(""+locationSelected+"").collection("SpecialEvents").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d(TAG, "Error: " + e.getMessage());
+                }
 //                USES TOO MUCH DATA
 //                for(DocumentSnapshot doc: queryDocumentSnapshots){
 //                    String userName = doc.getString("name");
 //                    Log.d(TAG, "Name: " + userName);
 //                }
-                    for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
-                        if (doc.getType() == DocumentChange.Type.ADDED) {
+                for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
+                    if (doc.getType() == DocumentChange.Type.ADDED) {
 //                        String userName = doc.getDocument().getString("name");
 //                        Log.d(TAG, "Name: " + userName);
-                            Events events = doc.getDocument().toObject(Events.class);
-                            eventsList.add(events);
+                        Events events = doc.getDocument().toObject(Events.class);
+                        eventsList.add(events);
 
-                            eventsListAdapter.notifyDataSetChanged();
-                        }
+                        eventsListAdapter.notifyDataSetChanged();
                     }
-                } //END ONEVENT
-            }); //END FIREBASE FIRESTORE COLLECTION
+                }
+            } //END ONEVENT
+        }); //END FIREBASE FIRESTORE COLLECTION
 
-        } //END THE NULL ARGUMENT CHECK
 
         return view;
     }

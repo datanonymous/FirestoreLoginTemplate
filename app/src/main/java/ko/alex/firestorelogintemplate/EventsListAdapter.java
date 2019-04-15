@@ -30,9 +30,9 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
         //CREATE CONSTRUCTOR MATCHING SUPER
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            eventsName = itemView.findViewById(R.id.yogaName);
-            eventsDate = itemView.findViewById(R.id.yogaDate);
-            eventsDescription = itemView.findViewById(R.id.yogaDescription);
+            eventsName = itemView.findViewById(R.id.eventsName);
+            eventsDate = itemView.findViewById(R.id.eventsDate);
+            eventsDescription = itemView.findViewById(R.id.eventsDescription);
         }
     }
 
@@ -50,6 +50,8 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
         viewHolder.eventsDate.setText(events.getEventsDate());
         viewHolder.eventsDescription.setText(events.getEventsDescription());
     }
+
+
 
     @Override
     public int getItemCount() {

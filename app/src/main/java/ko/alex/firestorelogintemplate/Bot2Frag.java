@@ -1,6 +1,7 @@
 package ko.alex.firestorelogintemplate;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -61,39 +62,43 @@ public class Bot2Frag extends Fragment {
         //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
         //TODO: https://www.youtube.com/watch?v=vdCejJobMp4
         //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
-        Bundle bundle = this.getArguments();
-        String myValue = bundle.getString("fromLocationActivity");
-        Toast.makeText(getContext(), "Location selected: " + myValue, Toast.LENGTH_SHORT).show();
+//        Bundle bundle = this.getArguments();
+//        String myValue = bundle.getString("fromLocationActivity");
+//        Toast.makeText(getContext(), "Location selected: " + myValue, Toast.LENGTH_SHORT).show();
 
-        if (getArguments() != null) {
-            String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
-            Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
 
-            firebaseFirestore.collection("GymLocations").document(locationSelected).collection("YogaSessions").addSnapshotListener(new EventListener<QuerySnapshot>() {
-                @Override
-                public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                    if (e != null) {
-                        Log.d(TAG, "Error: " + e.getMessage());
-                    }
+        //CTRL+ALT+L as a shortcut to auto format code (such as indents)
+//        String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
+//        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
+        LocationActivity locationActivity = (LocationActivity) getActivity();
+        String locationSelected = locationActivity.getLocationSelected();
+        Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
+
+        firebaseFirestore.collection("GymLocations").document(""+locationSelected+"").collection("YogaSessions").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d(TAG, "Error: " + e.getMessage());
+                }
 //                USES TOO MUCH DATA
 //                for(DocumentSnapshot doc: queryDocumentSnapshots){
 //                    String userName = doc.getString("name");
 //                    Log.d(TAG, "Name: " + userName);
 //                }
-                    for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
-                        if (doc.getType() == DocumentChange.Type.ADDED) {
+                for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
+                    if (doc.getType() == DocumentChange.Type.ADDED) {
 //                        String userName = doc.getDocument().getString("name");
 //                        Log.d(TAG, "Name: " + userName);
-                            Yoga yoga = doc.getDocument().toObject(Yoga.class);
-                            yogaList.add(yoga);
+                        Yoga yoga = doc.getDocument().toObject(Yoga.class);
+                        yogaList.add(yoga);
 
-                            yogaListAdapter.notifyDataSetChanged();
-                        }
+                        yogaListAdapter.notifyDataSetChanged();
                     }
-                } //END ONEVENT
-            }); //END FIREBASE FIRESTORE COLLECTION
+                }
+            } //END ONEVENT
+        }); //END FIREBASE FIRESTORE COLLECTION
 
-        } //END THE NULL ARGUMENT CHECK
+
 
         return view;
     }

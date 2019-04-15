@@ -6,6 +6,10 @@ public class Events {
     private String eventsDescription;
     private String eventsDate;
 
+    public Events(){
+        //EMPTY DEFAULT CONSTRUCTOR SO THAT FIREBASE CAN DESERIALIZE USER
+    }
+
     public Events(String eventsName, String eventsDate, String eventsDescription) {
         this.eventsName = eventsName;
         this.eventsDate = eventsDate;
