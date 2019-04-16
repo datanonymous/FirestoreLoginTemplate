@@ -40,9 +40,9 @@ public class YogaListAdapter extends RecyclerView.Adapter<YogaListAdapter.ViewHo
 
     @NonNull
     @Override
-    public YogaListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.yoga_item, viewGroup, false); //EACH INDIVIDUAL ITEM LAYOUT
-        return new YogaListAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override

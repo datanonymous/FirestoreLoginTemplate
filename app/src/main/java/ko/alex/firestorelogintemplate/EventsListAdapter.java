@@ -38,9 +38,9 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
 
     @NonNull
     @Override
-    public EventsListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.events_item, viewGroup, false); //EACH INDIVIDUAL ITEM LAYOUT
-        return new EventsListAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -50,8 +50,6 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
         viewHolder.eventsDate.setText(events.getEventsDate());
         viewHolder.eventsDescription.setText(events.getEventsDescription());
     }
-
-
 
     @Override
     public int getItemCount() {

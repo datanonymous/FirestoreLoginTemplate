@@ -26,6 +26,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
         //View view;
         public TextView nameText;
         public TextView birthdayText;
+
         //CREATE CONSTRUCTOR MATCHING SUPER
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
