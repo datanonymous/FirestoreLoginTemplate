@@ -74,7 +74,7 @@ public class Bot2Frag extends Fragment {
         String locationSelected = locationActivity.getLocationSelected();
         Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
-        firebaseFirestore.collection("GymLocations").document(""+locationSelected+"").collection("YogaSessions").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection("GymLocations").document(locationSelected).collection("YogaSessions").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {
@@ -91,8 +91,8 @@ public class Bot2Frag extends Fragment {
 //                        Log.d(TAG, "Name: " + userName);
                         Yoga yoga = doc.getDocument().toObject(Yoga.class);
                         yogaList.add(yoga);
-
                         yogaListAdapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), "SHITFUCK bot2frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
             } //END ONEVENT
@@ -101,6 +101,8 @@ public class Bot2Frag extends Fragment {
 
 
         return view;
-    }
+    } //END ONCREATEVIEW
 
-}
+
+
+} //END BOT2FRAG

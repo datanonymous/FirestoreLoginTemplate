@@ -82,12 +82,14 @@ public class Bot1Frag extends Fragment {
 //                        Log.d(TAG, "Name: " + userName);
                         Users users = doc.getDocument().toObject(Users.class);
                         usersList.add(users);
-
                         usersListAdapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), "SHITFUCK bot1frag: "+doc.getDocument().getString("name"), Toast.LENGTH_LONG).show();
                     }
                 }
             } //END ONEVENT
         }); //END FIREBASE FIRESTORE COLLECTION
+
+
 
         return view;
     } //END ONCREATEVIEW

@@ -69,7 +69,7 @@ public class Bot3Frag extends Fragment {
 //        String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
 //        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
 
-        firebaseFirestore.collection("GymLocations").document(""+locationSelected+"").collection("SpecialEvents").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection("GymLocations").document(locationSelected).collection("SpecialEvents").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {
@@ -86,15 +86,18 @@ public class Bot3Frag extends Fragment {
 //                        Log.d(TAG, "Name: " + userName);
                         Events events = doc.getDocument().toObject(Events.class);
                         eventsList.add(events);
-
                         eventsListAdapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), "SHITFUCK bot3frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
             } //END ONEVENT
         }); //END FIREBASE FIRESTORE COLLECTION
 
 
-        return view;
-    }
 
-}
+        return view;
+    } //END ONCREATEVIEW
+
+
+
+} //END BOT3FRAG
