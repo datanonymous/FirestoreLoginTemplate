@@ -1,6 +1,11 @@
 package ko.alex.firestorelogintemplate;
 
+//import com.google.firebase.firestore.IgnoreExtraProperties;
+//https://stackoverflow.com/questions/37902635/no-setter-field-for-warning-firebase-database-retrieve-data-populate-listview/37904004#37904004
+//@IgnoreExtraProperties
 public class Yoga {
+
+    //YOGA POJO
 
     private String yogaName;
     private String yogaDate;

@@ -21,6 +21,7 @@ public class YogaListAdapter extends RecyclerView.Adapter<YogaListAdapter.ViewHo
     public YogaListAdapter(List<Yoga> yogaList){
         this.yogaList = yogaList;
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         //View view;
         public TextView yogaName;
@@ -46,7 +47,7 @@ public class YogaListAdapter extends RecyclerView.Adapter<YogaListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull YogaListAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Yoga yoga = yogaList.get(i); //private List<Users> usersList;
         viewHolder.yogaName.setText(yoga.getYogaName());
         viewHolder.yogaDate.setText(yoga.getYogaDate());

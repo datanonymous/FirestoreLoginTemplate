@@ -47,8 +47,6 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
         Users users = usersList.get(i); //private List<Users> usersList;
         viewHolder.nameText.setText(users.getName());
         viewHolder.birthdayText.setText(users.getBirthday());
-        //viewHolder.nameText.setText(usersList.get(i).getName());
-        //viewHolder.birthdayText.setText(usersList.get(i).getBirthday());
     }
 
     @Override

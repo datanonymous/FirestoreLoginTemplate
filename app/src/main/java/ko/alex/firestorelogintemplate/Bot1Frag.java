@@ -83,7 +83,7 @@ public class Bot1Frag extends Fragment {
                         Users users = doc.getDocument().toObject(Users.class);
                         usersList.add(users);
                         usersListAdapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), "SHITFUCK bot1frag: "+doc.getDocument().getString("name"), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "DocumentChange bot1frag: "+doc.getDocument().getString("name"), Toast.LENGTH_LONG).show();
                     }
                 }
             } //END ONEVENT

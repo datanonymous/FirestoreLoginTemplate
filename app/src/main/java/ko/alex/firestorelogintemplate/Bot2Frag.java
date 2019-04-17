@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -48,10 +49,10 @@ public class Bot2Frag extends Fragment {
         bot2recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         yogaList = new ArrayList<>();
+
         yogaListAdapter = new YogaListAdapter(yogaList);
         bot2recyclerview.setAdapter(yogaListAdapter);
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
         /*
         FIRESTORE IS SETUP LIKE THIS:
         GymLocations -> Durham, Morrisville, Raleigh
@@ -74,25 +75,34 @@ public class Bot2Frag extends Fragment {
         String locationSelected = locationActivity.getLocationSelected();
         Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
+        firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("GymLocations").document(locationSelected).collection("YogaSessions").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {
                     Log.d(TAG, "Error: " + e.getMessage());
                 }
-//                USES TOO MUCH DATA
+////                USES TOO MUCH DATA
 //                for(DocumentSnapshot doc: queryDocumentSnapshots){
-//                    String userName = doc.getString("name");
-//                    Log.d(TAG, "Name: " + userName);
+//                    String asdfName = doc.getString("Name");
+//                    String asdfDescription = doc.getString("Description");
+//                    String asdfInstructor = doc.getString("Instructor");
+//                    String asdfDate = doc.getString("Date");
+//                    Log.d(TAG, "Name: " + asdfName);
+//                    Log.d(TAG, "Description: " + asdfDescription);
+//                    Log.d(TAG, "Instructor: " + asdfInstructor);
+//                    Log.d(TAG, "Date: " + asdfDate);
+//                    //https://github.com/firebase/FirebaseUI-Android/tree/master/firestore
+////                List<Events> eventsList = queryDocumentSnapshots.toObjects(Events.class);
 //                }
-                for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
-                    if (doc.getType() == DocumentChange.Type.ADDED) {
+                for(DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()){
+                    if(doc.getType() == DocumentChange.Type.ADDED){
 //                        String userName = doc.getDocument().getString("name");
 //                        Log.d(TAG, "Name: " + userName);
                         Yoga yoga = doc.getDocument().toObject(Yoga.class);
                         yogaList.add(yoga);
                         yogaListAdapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), "SHITFUCK bot2frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "DocumentChange bot2frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
             } //END ONEVENT

@@ -1,5 +1,8 @@
 package ko.alex.firestorelogintemplate;
 
+//import com.google.firebase.firestore.IgnoreExtraProperties;
+
+//@IgnoreExtraProperties
 public class Events {
 
     private String eventsName;

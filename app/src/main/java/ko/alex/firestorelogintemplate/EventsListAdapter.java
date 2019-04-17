@@ -21,6 +21,7 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
     public EventsListAdapter(List<Events> eventsList){
         this.eventsList = eventsList;
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         //View view;
         public TextView eventsName;
@@ -44,7 +45,7 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventsListAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Events events = eventsList.get(i); //private List<Users> usersList;
         viewHolder.eventsName.setText(events.getEventsName());
         viewHolder.eventsDate.setText(events.getEventsDate());

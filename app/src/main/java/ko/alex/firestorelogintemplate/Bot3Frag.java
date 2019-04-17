@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -46,10 +47,10 @@ public class Bot3Frag extends Fragment {
         bot3recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         eventsList = new ArrayList<>();
+
         eventsListAdapter = new EventsListAdapter(eventsList);
         bot3recyclerview.setAdapter(eventsListAdapter);
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
         /*
         FIRESTORE IS SETUP LIKE THIS:
         GymLocations -> Durham, Morrisville, Raleigh
@@ -68,17 +69,25 @@ public class Bot3Frag extends Fragment {
 
 //        String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
 //        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
-
+        firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("GymLocations").document(locationSelected).collection("SpecialEvents").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {
                     Log.d(TAG, "Error: " + e.getMessage());
                 }
-//                USES TOO MUCH DATA
+////                USES TOO MUCH DATA
 //                for(DocumentSnapshot doc: queryDocumentSnapshots){
-//                    String userName = doc.getString("name");
-//                    Log.d(TAG, "Name: " + userName);
+//                    String asdfName = doc.getString("Name");
+//                    String asdfDescription = doc.getString("Description");
+//                    String asdfInstructor = doc.getString("Instructor");
+//                    String asdfDate = doc.getString("Date");
+//                    Log.d(TAG, "Name: " + asdfName);
+//                    Log.d(TAG, "Description: " + asdfDescription);
+//                    Log.d(TAG, "Instructor: " + asdfInstructor);
+//                    Log.d(TAG, "Date: " + asdfDate);
+//                    //https://github.com/firebase/FirebaseUI-Android/tree/master/firestore
+////                List<Events> eventsList = queryDocumentSnapshots.toObjects(Events.class);
 //                }
                 for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
                     if (doc.getType() == DocumentChange.Type.ADDED) {
@@ -87,7 +96,7 @@ public class Bot3Frag extends Fragment {
                         Events events = doc.getDocument().toObject(Events.class);
                         eventsList.add(events);
                         eventsListAdapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), "SHITFUCK bot3frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "DocumentChange bot3frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
             } //END ONEVENT
