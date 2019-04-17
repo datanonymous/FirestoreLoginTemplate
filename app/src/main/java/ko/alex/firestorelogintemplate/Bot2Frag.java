@@ -26,9 +26,9 @@ import javax.annotation.Nullable;
 
 public class Bot2Frag extends Fragment {
 
-    private static final String TAG = "AlexKo";
     private RecyclerView bot2recyclerview;
     private FirebaseFirestore firebaseFirestore;
+    private static final String TAG = "AlexKo";
     private List<Yoga> yogaList;
     private YogaListAdapter yogaListAdapter;
 
