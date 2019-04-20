@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#https://stackoverflow.com/questions/41650103/no-setter-field-for-found-android-firebase/41651184#41651184
+-keep class ko.alex.Yoga
+-keep class ko.alex.Events

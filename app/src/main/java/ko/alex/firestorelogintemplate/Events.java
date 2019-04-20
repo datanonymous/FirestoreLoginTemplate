@@ -5,42 +5,47 @@ package ko.alex.firestorelogintemplate;
 //@IgnoreExtraProperties
 public class Events {
 
-    private String eventsName;
-    private String eventsDescription;
-    private String eventsDate;
+    //EVENTS POJO
+    //CHANGING PRIVATE TO PUBLIC VARIABLES
+    //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
+
+    //THESE VARIABLES MUST MATCH FIREBASE VARIABLES!!!
+    public String Name;
+    public String Description;
+    public String Date;
 
     public Events(){
         //EMPTY DEFAULT CONSTRUCTOR SO THAT FIREBASE CAN DESERIALIZE USER
     }
 
-    public Events(String eventsName, String eventsDate, String eventsDescription) {
-        this.eventsName = eventsName;
-        this.eventsDate = eventsDate;
-        this.eventsDescription = eventsDescription;
+    public Events(String Name, String Date, String Description) {
+        this.Name = Name;
+        this.Date = Date;
+        this.Description = Description;
     }
 
     public String getEventsName() {
-        return eventsName;
+        return Name;
     }
 
-    public void setEventsName(String eventsName) {
-        this.eventsName = eventsName;
+    public void setEventsName(String Name) {
+        this.Name = Name;
     }
 
     public String getEventsDate() {
-        return eventsDate;
+        return Date;
     }
 
-    public void setEventsDate(String eventsDate) {
-        this.eventsDate = eventsDate;
+    public void setEventsDate(String Date) {
+        this.Date = Date;
     }
 
     public String getEventsDescription() {
-        return eventsDescription;
+        return Description;
     }
 
-    public void setEventsDescription(String eventsDescription) {
-        this.eventsDescription = eventsDescription;
+    public void setEventsDescription(String Description) {
+        this.Description = Description;
     }
 
 

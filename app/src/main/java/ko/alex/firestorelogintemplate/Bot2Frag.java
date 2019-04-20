@@ -45,7 +45,7 @@ public class Bot2Frag extends Fragment {
         View view = inflater.inflate(R.layout.bot2frag, container, false);
 
         bot2recyclerview = view.findViewById(R.id.bot2recyclerview);
-        bot2recyclerview.setHasFixedSize(true);
+//        bot2recyclerview.setHasFixedSize(true); //TODO: https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
         bot2recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         yogaList = new ArrayList<>();
@@ -101,10 +101,15 @@ public class Bot2Frag extends Fragment {
 //                        Log.d(TAG, "Name: " + userName);
                         Yoga yoga = doc.getDocument().toObject(Yoga.class);
                         yogaList.add(yoga);
-                        yogaListAdapter.notifyDataSetChanged();
+//                        yogaListAdapter.notifyDataSetChanged();
                         Toast.makeText(getActivity(), "DocumentChange bot2frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
+                //SEE IF MOVING NOTIFYDATASETCHANGED() OUTSIDE THE FOR LOOP HELPS
+                //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
+                //https://stackoverflow.com/questions/46706433/firebase-firestore-get-data-from-collection
+                //https://stackoverflow.com/questions/47973354/get-data-from-firestore-firebase/47974076#47974076
+                yogaListAdapter.notifyDataSetChanged();
             } //END ONEVENT
         }); //END FIREBASE FIRESTORE COLLECTION
 

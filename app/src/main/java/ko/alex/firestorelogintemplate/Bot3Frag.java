@@ -43,7 +43,7 @@ public class Bot3Frag extends Fragment {
         View view = inflater.inflate(R.layout.bot3frag, container, false);
 
         bot3recyclerview = view.findViewById(R.id.bot3recyclerview);
-        bot3recyclerview.setHasFixedSize(true);
+//        bot3recyclerview.setHasFixedSize(true); //TODO: https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
         bot3recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         eventsList = new ArrayList<>();
@@ -95,10 +95,13 @@ public class Bot3Frag extends Fragment {
 //                        Log.d(TAG, "Name: " + userName);
                         Events events = doc.getDocument().toObject(Events.class);
                         eventsList.add(events);
-                        eventsListAdapter.notifyDataSetChanged();
+//                        eventsListAdapter.notifyDataSetChanged();
                         Toast.makeText(getActivity(), "DocumentChange bot3frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
+                //SEE IF MOVING NOTIFYDATASETCHANGED() OUTSIDE THE FOR LOOP HELPS
+                //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
+                eventsListAdapter.notifyDataSetChanged();
             } //END ONEVENT
         }); //END FIREBASE FIRESTORE COLLECTION
 
