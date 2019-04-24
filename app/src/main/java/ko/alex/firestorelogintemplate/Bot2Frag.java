@@ -45,7 +45,7 @@ public class Bot2Frag extends Fragment {
         View view = inflater.inflate(R.layout.bot2frag, container, false);
 
         bot2recyclerview = view.findViewById(R.id.bot2recyclerview);
-//        bot2recyclerview.setHasFixedSize(true); //TODO: https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
+//        bot2recyclerview.setHasFixedSize(true); //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
         bot2recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         yogaList = new ArrayList<>();
@@ -59,17 +59,17 @@ public class Bot2Frag extends Fragment {
         Durham -> ClimbingClinics, YogaSessions, SpecialEvents
         ClimbingClinics -> documents
          */
-        //TODO: Trying to pass data from activity (LocationActivity) to fragment, "which gym location did the user select?"
-        //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
-        //TODO: https://www.youtube.com/watch?v=vdCejJobMp4
-        //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
+        //Trying to pass data from activity (LocationActivity) to fragment, "which gym location did the user select?"
+        //https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
+        //https://www.youtube.com/watch?v=vdCejJobMp4
+        //https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
 //        Bundle bundle = this.getArguments();
 //        String myValue = bundle.getString("fromLocationActivity");
 //        Toast.makeText(getContext(), "Location selected: " + myValue, Toast.LENGTH_SHORT).show();
 
 
         //CTRL+ALT+L as a shortcut to auto format code (such as indents)
-//        String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
+//        String locationSelected = this.getArguments().getString("fromLocationActivity"); //Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
 //        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
         LocationActivity locationActivity = (LocationActivity) getActivity();
         String locationSelected = locationActivity.getLocationSelected();

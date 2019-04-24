@@ -10,6 +10,7 @@ public class Yoga {
     //CHANGING PRIVATE TO PUBLIC VARIABLES
     //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
 
+    //THESE VARIABLES MUST MATCH FIREBASE VARIABLES!!!
     public String Name;
     public String Date;
     public String Description;

@@ -7,6 +7,8 @@ public class Users {
 
     public Users(){
         //EMPTY DEFAULT CONSTRUCTOR SO THAT FIREBASE CAN DESERIALIZE USER
+        //Working with Firebase and Recyclerview
+        //https://www.youtube.com/watch?v=kyGVgrLG3KU&list=LLj1xIyoM3IcZs9XdwFDaJWA&index=3&t=0s
     }
 
     //USE ALT+INSERT TO GENERATE CONSTRUCTORS

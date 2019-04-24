@@ -43,7 +43,7 @@ public class Bot3Frag extends Fragment {
         View view = inflater.inflate(R.layout.bot3frag, container, false);
 
         bot3recyclerview = view.findViewById(R.id.bot3recyclerview);
-//        bot3recyclerview.setHasFixedSize(true); //TODO: https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
+//        bot3recyclerview.setHasFixedSize(true); //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
         bot3recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         eventsList = new ArrayList<>();
@@ -57,17 +57,17 @@ public class Bot3Frag extends Fragment {
         Durham -> ClimbingClinics, YogaSessions, SpecialEvents
         ClimbingClinics -> documents
          */
-        //TODO: Trying to pass data from activity (LocationActivity) to fragment, "which gym location did the user select?"
-        //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
-        //TODO: https://www.youtube.com/watch?v=vdCejJobMp4
-        //TODO: https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
+        //Trying to pass data from activity (LocationActivity) to fragment, "which gym location did the user select?"
+        //https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
+        //https://www.youtube.com/watch?v=vdCejJobMp4
+        //https://stackoverflow.com/questions/12739909/send-data-from-activity-to-fragment-in-android
 //        String myValue = this.getArguments().getString("fromLocationActivity");
 //        Toast.makeText(getContext(), "Location selected: " + myValue, Toast.LENGTH_SHORT).show();
         LocationActivity locationActivity = (LocationActivity) getActivity();
         String locationSelected = locationActivity.getLocationSelected();
         Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
-//        String locationSelected = this.getArguments().getString("fromLocationActivity"); //TODO: Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
+//        String locationSelected = this.getArguments().getString("fromLocationActivity"); //Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
 //        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("GymLocations").document(locationSelected).collection("SpecialEvents").addSnapshotListener(new EventListener<QuerySnapshot>() {

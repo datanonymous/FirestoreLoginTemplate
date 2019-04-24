@@ -30,11 +30,11 @@ import javax.annotation.Nullable;
 
 public class Bot1Frag extends Fragment {
 
-    private RecyclerView mainList;
+    private RecyclerView bot1recyclerview;
     private FirebaseFirestore firebaseFirestore;
     private static final String TAG = "AlexKo";
-    private List<Users> usersList;
-    private UsersListAdapter usersListAdapter;
+    private List<Climbing> climbingList;
+    private ClimbingListAdapter climbingListAdapter;
 
     public Bot1Frag() {
         // Required empty public constructor
@@ -54,18 +54,28 @@ public class Bot1Frag extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.bot1frag, container, false);
 
-        //mainList refers to the recyclerview
-        mainList = view.findViewById(R.id.mainList);
-        mainList.setHasFixedSize(true);
-        mainList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        bot1recyclerview = view.findViewById(R.id.bot1recyclerview);
+//        bot1recyclerview.setHasFixedSize(true); //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
+        bot1recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        usersList = new ArrayList<>();
+        climbingList = new ArrayList<>();
 
-        usersListAdapter = new UsersListAdapter(usersList);
-        mainList.setAdapter(usersListAdapter);
+        climbingListAdapter = new ClimbingListAdapter(climbingList);
+        bot1recyclerview.setAdapter(climbingListAdapter);
+
+        /*
+        FIRESTORE IS SETUP LIKE THIS:
+        GymLocations -> Durham, Morrisville, Raleigh
+        Durham -> ClimbingClinics, YogaSessions, SpecialEvents
+        ClimbingClinics -> documents
+         */
+        //CTRL+ALT+L as a shortcut to auto format code (such as indents)
+        LocationActivity locationActivity = (LocationActivity) getActivity(); //Starting LocationActivity class
+        String locationSelected = locationActivity.getLocationSelected(); //Accessing the getLocationSelected custom method to retrieve message
+        Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
         firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection("Users").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection("GymLocations").document(locationSelected).collection("ClimbingClinics").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if(e != null){
@@ -80,12 +90,17 @@ public class Bot1Frag extends Fragment {
                     if(doc.getType() == DocumentChange.Type.ADDED){
 //                        String userName = doc.getDocument().getString("name");
 //                        Log.d(TAG, "Name: " + userName);
-                        Users users = doc.getDocument().toObject(Users.class);
-                        usersList.add(users);
-                        usersListAdapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), "DocumentChange bot1frag: "+doc.getDocument().getString("name"), Toast.LENGTH_LONG).show();
+                        Climbing climbing = doc.getDocument().toObject(Climbing.class);
+                        climbingList.add(climbing);
+//                        climbingListAdapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), "DocumentChange bot1frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
+                //SEE IF MOVING NOTIFYDATASETCHANGED() OUTSIDE THE FOR LOOP HELPS
+                //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
+                //https://stackoverflow.com/questions/46706433/firebase-firestore-get-data-from-collection
+                //https://stackoverflow.com/questions/47973354/get-data-from-firestore-firebase/47974076#47974076
+                climbingListAdapter.notifyDataSetChanged();
             } //END ONEVENT
         }); //END FIREBASE FIRESTORE COLLECTION
 
