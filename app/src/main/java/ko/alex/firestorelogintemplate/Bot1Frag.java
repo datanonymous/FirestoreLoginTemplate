@@ -82,17 +82,16 @@ public class Bot1Frag extends Fragment {
                     Log.d(TAG, "Error: " + e.getMessage());
                 }
 //                USES TOO MUCH DATA
-//                for(DocumentSnapshot doc: queryDocumentSnapshots){
-//                    String userName = doc.getString("name");
-//                    Log.d(TAG, "Name: " + userName);
+//                for(DocumentSnapshot doc1: queryDocumentSnapshots){
+////                    String className = doc.getString("Name");
+////                    Log.d(TAG, "Name: " + className);
+//                    Climbing climbing = doc1.toObject(Climbing.class);
+//                    climbingList.add(climbing);
 //                }
                 for(DocumentChange doc: queryDocumentSnapshots.getDocumentChanges()){
                     if(doc.getType() == DocumentChange.Type.ADDED){
-//                        String userName = doc.getDocument().getString("name");
-//                        Log.d(TAG, "Name: " + userName);
                         Climbing climbing = doc.getDocument().toObject(Climbing.class);
                         climbingList.add(climbing);
-//                        climbingListAdapter.notifyDataSetChanged();
                         Toast.makeText(getActivity(), "DocumentChange bot1frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }

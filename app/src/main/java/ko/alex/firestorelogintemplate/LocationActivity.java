@@ -23,7 +23,7 @@ import org.w3c.dom.Text;
 
 public class LocationActivity extends AppCompatActivity {
 
-    TextView textViewVerification, gymChoice, textViewTitle1, textViewTitle2;
+    TextView textViewTitle1, textViewTitle2;
     FirebaseAuth mAuth;
 
     String message;
@@ -98,6 +98,7 @@ public class LocationActivity extends AppCompatActivity {
 
 
 
+    //https://www.androidhive.info/2017/12/android-working-with-bottom-navigation/
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -131,6 +132,15 @@ public class LocationActivity extends AppCompatActivity {
         transaction.replace(R.id.topConstraint, fragment); //TOP CONSTRAINT IS THE LAYOUT THAT IS CHANGED BETWEEN BOTTOM TABS
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LocationActivity.this, TableOfContents.class);
+        startActivity(intent);
+//        moveTaskToBack(true); //https://stackoverflow.com/questions/3141996/android-how-to-override-the-back-button-so-it-doesnt-finish-my-activity
     }
 
 

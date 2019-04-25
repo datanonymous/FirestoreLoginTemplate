@@ -47,7 +47,7 @@ public class TableOfContents extends AppCompatActivity {
             public void onClick(View v){
                 Toast.makeText(getApplicationContext(), "Raleigh button clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("message", "Raleigh");
                 startActivity(intent);
             }
@@ -57,7 +57,7 @@ public class TableOfContents extends AppCompatActivity {
             public void onClick(View v){
                 Toast.makeText(getApplicationContext(), "Morrisville button clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("message", "Morrisville");
                 startActivity(intent);
             }
@@ -67,7 +67,7 @@ public class TableOfContents extends AppCompatActivity {
             public void onClick(View v){
                 Toast.makeText(getApplicationContext(), "Durham clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("message", "Durham");
                 startActivity(intent);
             }
@@ -76,6 +76,13 @@ public class TableOfContents extends AppCompatActivity {
 
 
     } //End onCreate
+
+
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true); //https://stackoverflow.com/questions/3141996/android-how-to-override-the-back-button-so-it-doesnt-finish-my-activity
+    }
 
 
 
