@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -57,6 +58,10 @@ public class Bot1Frag extends Fragment {
         bot1recyclerview = view.findViewById(R.id.bot1recyclerview);
 //        bot1recyclerview.setHasFixedSize(true); //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
         bot1recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //adding lines between items
+        //https://www.androidhive.info/2016/01/android-working-with-recycler-view/
+        bot1recyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
 
         climbingList = new ArrayList<>();
 

@@ -2,6 +2,7 @@ package ko.alex.firestorelogintemplate;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -45,6 +46,10 @@ public class Bot3Frag extends Fragment {
         bot3recyclerview = view.findViewById(R.id.bot3recyclerview);
 //        bot3recyclerview.setHasFixedSize(true); //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
         bot3recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //adding lines between items
+        //https://www.androidhive.info/2016/01/android-working-with-recycler-view/
+        bot3recyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
 
         eventsList = new ArrayList<>();
 

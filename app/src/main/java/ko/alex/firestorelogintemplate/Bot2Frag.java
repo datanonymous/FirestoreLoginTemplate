@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -47,6 +48,10 @@ public class Bot2Frag extends Fragment {
         bot2recyclerview = view.findViewById(R.id.bot2recyclerview);
 //        bot2recyclerview.setHasFixedSize(true); //https://stackoverflow.com/questions/50161553/firestore-not-retrieving-certain-fields-from-document
         bot2recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //adding lines between items
+        //https://www.androidhive.info/2016/01/android-working-with-recycler-view/
+        bot2recyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
 
         yogaList = new ArrayList<>();
 
