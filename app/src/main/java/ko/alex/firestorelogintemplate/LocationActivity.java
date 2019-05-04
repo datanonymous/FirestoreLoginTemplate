@@ -124,7 +124,6 @@ public class LocationActivity extends AppCompatActivity {
             return false;
         }
     };
-
     private void loadFragment(Fragment fragment) {
         // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
