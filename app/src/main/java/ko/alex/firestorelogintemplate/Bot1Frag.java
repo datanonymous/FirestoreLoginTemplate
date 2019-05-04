@@ -66,7 +66,22 @@ public class Bot1Frag extends Fragment {
         climbingList = new ArrayList<>();
 
         climbingListAdapter = new ClimbingListAdapter(climbingList);
+
         bot1recyclerview.setAdapter(climbingListAdapter);
+
+        //recyclerview onClick listener; need RecyclerTouchListener class
+        //https://www.androidhive.info/2016/01/android-working-with-recycler-view/
+        bot1recyclerview.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), bot1recyclerview, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Climbing climbing = climbingList.get(position);
+                Toast.makeText(getActivity(), climbing.getClimbingName() + " is selected!", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
 
         /*
         FIRESTORE IS SETUP LIKE THIS:

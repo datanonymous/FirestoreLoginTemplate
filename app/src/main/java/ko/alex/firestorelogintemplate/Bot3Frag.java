@@ -56,6 +56,20 @@ public class Bot3Frag extends Fragment {
         eventsListAdapter = new EventsListAdapter(eventsList);
         bot3recyclerview.setAdapter(eventsListAdapter);
 
+        //recyclerview onClick listener; need RecyclerTouchListener class
+        //https://www.androidhive.info/2016/01/android-working-with-recycler-view/
+        bot3recyclerview.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), bot3recyclerview, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Events events = eventsList.get(position);
+                Toast.makeText(getActivity(), events.getEventsName() + " is selected!", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
         /*
         FIRESTORE IS SETUP LIKE THIS:
         GymLocations -> Durham, Morrisville, Raleigh

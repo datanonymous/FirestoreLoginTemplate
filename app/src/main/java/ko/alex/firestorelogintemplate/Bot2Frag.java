@@ -58,6 +58,20 @@ public class Bot2Frag extends Fragment {
         yogaListAdapter = new YogaListAdapter(yogaList);
         bot2recyclerview.setAdapter(yogaListAdapter);
 
+        //recyclerview onClick listener; need RecyclerTouchListener class
+        //https://www.androidhive.info/2016/01/android-working-with-recycler-view/
+        bot2recyclerview.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), bot2recyclerview, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Yoga yoga = yogaList.get(position);
+                Toast.makeText(getActivity(), yoga.getYogaName() + " is selected!", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
         /*
         FIRESTORE IS SETUP LIKE THIS:
         GymLocations -> Durham, Morrisville, Raleigh
