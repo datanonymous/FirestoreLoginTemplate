@@ -23,17 +23,18 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/yoga2" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="231dp"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/yogaImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/yoga1" />
 

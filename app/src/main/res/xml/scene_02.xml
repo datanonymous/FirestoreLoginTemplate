@@ -7,8 +7,8 @@
         motion:constraintSetEnd="@layout/bot2fragend"
         motion:duration="1000">
         <OnSwipe
-            motion:touchAnchorId="@+id/yogaImageView"
-            motion:touchAnchorSide="bottom"
+            motion:touchAnchorId="@+id/bot2recyclerview"
+            motion:touchAnchorSide="top"
             motion:dragDirection="dragUp" />
     </Transition>
 
