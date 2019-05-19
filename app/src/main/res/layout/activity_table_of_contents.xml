@@ -26,6 +26,7 @@
                 android:text="RALEIGH"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="36sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +42,7 @@
                 android:text="MORRISVILLE"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="36sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +59,7 @@
                 android:text="DURHAM"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="36sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +78,7 @@
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textColorLink="@color/colorAccent"
                 android:textSize="18sp"
-                android:textStyle="italic"
+                android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/durhamButton" />
