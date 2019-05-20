@@ -38,7 +38,7 @@ public class LocationActivity extends AppCompatActivity {
 
         //Trying to get what the user picked before
         Intent intent = getIntent(); //FROM TableOfContents java class
-        message = intent.getStringExtra("message");
+        message = intent.getStringExtra("message"); //Was Raleigh, Morrisville, or Durham selected?
 
 
 

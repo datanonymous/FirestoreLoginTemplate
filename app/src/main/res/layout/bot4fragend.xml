@@ -114,27 +114,24 @@
             <Button
                 android:id="@+id/pilotmountain"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_height="200dp"
+                android:background="@drawable/pilotmountain"
+                android:scaleType="fitCenter"
+                android:text="Pilot Mountain"
+                android:textColor="#FFFFFF"
+                android:textSize="36sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/hangingrock"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
+                android:layout_height="200dp"
+                android:background="@drawable/hangingrock"
+                android:scaleType="fitCenter"
+                android:text="Hanging Rock"
+                android:textColor="#FFFFFF"
+                android:textSize="36sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 
