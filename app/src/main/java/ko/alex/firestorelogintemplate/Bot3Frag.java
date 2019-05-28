@@ -84,7 +84,7 @@ public class Bot3Frag extends Fragment {
 //        Toast.makeText(getContext(), "Location selected: " + myValue, Toast.LENGTH_SHORT).show();
         LocationActivity locationActivity = (LocationActivity) getActivity();
         String locationSelected = locationActivity.getLocationSelected();
-        Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
 //        String locationSelected = this.getArguments().getString("fromLocationActivity"); //Returns java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.os.Bundle.getString(java.lang.String)' on a null object reference
 //        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
@@ -115,7 +115,7 @@ public class Bot3Frag extends Fragment {
                         Events events = doc.getDocument().toObject(Events.class);
                         eventsList.add(events);
 //                        eventsListAdapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), "DocumentChange bot3frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity(), "DocumentChange bot3frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
                 //SEE IF MOVING NOTIFYDATASETCHANGED() OUTSIDE THE FOR LOOP HELPS

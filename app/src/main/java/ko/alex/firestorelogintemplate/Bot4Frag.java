@@ -36,7 +36,7 @@ public class Bot4Frag extends Fragment {
     String outdoorLocationSelected;
 
     RadioGroup radioGroup;
-    RadioButton radioButton, radioButtonYes, radioButtonNo, radioButtonMaybe;
+    RadioButton radioButtonYes, radioButtonNo, radioButtonMaybe;
 
     public Bot4Frag() {
         // Required empty public constructor

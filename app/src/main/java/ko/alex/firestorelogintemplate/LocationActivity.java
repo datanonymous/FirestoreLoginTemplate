@@ -105,19 +105,19 @@ public class LocationActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_climbing:
-                    Toast.makeText(getApplicationContext(), "Climbing clinics", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Climbing clinics", Toast.LENGTH_SHORT).show();
                     loadFragment(new Bot1Frag());
                     return true;
                 case R.id.navigation_yoga:
-                    Toast.makeText(getApplicationContext(), "Yoga sessions", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Yoga sessions", Toast.LENGTH_SHORT).show();
                     loadFragment(new Bot2Frag());
                     return true;
                 case R.id.navigation_event:
-                    Toast.makeText(getApplicationContext(), "Special events", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Special events", Toast.LENGTH_SHORT).show();
                     loadFragment(new Bot3Frag());
                     return true;
                 case R.id.navigation_mountain:
-                    Toast.makeText(getApplicationContext(), "Outdoor climbing", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Outdoor climbing", Toast.LENGTH_SHORT).show();
                     loadFragment(new Bot4Frag());
                     return true;
             }

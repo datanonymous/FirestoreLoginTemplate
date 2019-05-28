@@ -92,7 +92,7 @@ public class Bot2Frag extends Fragment {
 //        Toast.makeText(getContext(), "Location selected: " + locationSelected, Toast.LENGTH_SHORT).show();
         LocationActivity locationActivity = (LocationActivity) getActivity();
         String locationSelected = locationActivity.getLocationSelected();
-        Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("GymLocations").document(locationSelected).collection("YogaSessions").addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -121,7 +121,7 @@ public class Bot2Frag extends Fragment {
                         Yoga yoga = doc.getDocument().toObject(Yoga.class);
                         yogaList.add(yoga);
 //                        yogaListAdapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), "DocumentChange bot2frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity(), "DocumentChange bot2frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
                 //SEE IF MOVING NOTIFYDATASETCHANGED() OUTSIDE THE FOR LOOP HELPS

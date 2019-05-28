@@ -38,14 +38,14 @@ public class TableOfContents extends AppCompatActivity {
             public void onClick(View v){
                 FirebaseAuth.getInstance().signOut();
                 finish(); //https://stackoverflow.com/questions/10847526/what-exactly-activity-finish-method-is-doing
-                Toast.makeText(getApplicationContext(), "Login screen clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Login screen clicked", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(TableOfContents.this, MainActivity.class)); //Can also use getApplicationContext() instead of TableOfContents.this
             }
         });
         raleighButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), "Raleigh button clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Raleigh button clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("message", "Raleigh");
@@ -55,7 +55,7 @@ public class TableOfContents extends AppCompatActivity {
         morrisvilleButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), "Morrisville button clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Morrisville button clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("message", "Morrisville");
@@ -65,7 +65,7 @@ public class TableOfContents extends AppCompatActivity {
         durhamButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), "Durham clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Durham clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TableOfContents.this, LocationActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("message", "Durham");

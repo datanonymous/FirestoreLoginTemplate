@@ -92,7 +92,7 @@ public class Bot1Frag extends Fragment {
         //CTRL+ALT+L as a shortcut to auto format code (such as indents)
         LocationActivity locationActivity = (LocationActivity) getActivity(); //Starting LocationActivity class
         String locationSelected = locationActivity.getLocationSelected(); //Accessing the getLocationSelected custom method to retrieve message
-        Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Location selected is: " + locationSelected, Toast.LENGTH_SHORT).show();
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("GymLocations").document(locationSelected).collection("ClimbingClinics").addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -112,7 +112,7 @@ public class Bot1Frag extends Fragment {
                     if(doc.getType() == DocumentChange.Type.ADDED){
                         Climbing climbing = doc.getDocument().toObject(Climbing.class);
                         climbingList.add(climbing);
-                        Toast.makeText(getActivity(), "DocumentChange bot1frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity(), "DocumentChange bot1frag: "+doc.getDocument().getString("Name"), Toast.LENGTH_LONG).show();
                     }
                 }
                 //SEE IF MOVING NOTIFYDATASETCHANGED() OUTSIDE THE FOR LOOP HELPS

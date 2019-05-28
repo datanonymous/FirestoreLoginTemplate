@@ -20,7 +20,7 @@
                 android:id="@+id/raleighButton"
                 android:layout_width="match_parent"
                 android:layout_height="213dp"
-                android:background="@drawable/trcraleigh"
+                android:background="@drawable/bouldering3"
                 android:hapticFeedbackEnabled="true"
                 android:scaleType="fitCenter"
                 android:text="RALEIGH"
@@ -68,7 +68,7 @@
             <Button
                 android:id="@+id/loginScreen"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/ropepic2"
                 android:hapticFeedbackEnabled="true"
