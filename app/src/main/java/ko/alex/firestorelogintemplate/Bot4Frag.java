@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class Bot4Frag extends Fragment {
 
-    Button pilotMountain, hangingRock;
+    Button pilotMountain, hangingRock, tableMountain;
     private FirebaseFirestore firebaseFirestore;
     String outdoorLocationSelected;
 
@@ -63,6 +63,15 @@ public class Bot4Frag extends Fragment {
             public void onClick(View v){
                 Toast.makeText(getActivity(), "Hanging Rock button clicked", Toast.LENGTH_SHORT).show();
                 outdoorLocationSelected = "HangingRock";
+                startCustomAlertDialog(outdoorLocationSelected);
+            }
+        });
+        tableMountain = view.findViewById(R.id.tablemountain);
+        tableMountain.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getActivity(), "Table Mountain button clicked", Toast.LENGTH_SHORT).show();
+                outdoorLocationSelected = "TableMountain";
                 startCustomAlertDialog(outdoorLocationSelected);
             }
         });
